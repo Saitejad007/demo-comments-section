@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --foreground-border: 135, 135, 135;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,7 +14,12 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --foreground-border: 204, 204, 204;
   }
+}
+
+html {
+  font-size: 62.5%;
 }
 
 body {
@@ -24,4 +30,99 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  font-size: 1.6rem;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3.2rem;
+  font-weight: 700;
+  padding: 2rem;
+}
+
+.info {
+  text-align: center;
+  font-size: 1.2rem;
+  color: grey;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+}
+
+.comment {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 1.6rem;
+  margin: 1rem;
+  border-radius: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 800px;
+}
+
+.odd {
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #c0c0c0;
+}
+
+.even {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #c0c0c0;
+}
+
+.comment-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.comment img {
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.comment h3 {
+  margin-right: auto;
+  font-weight: 600;
+}
+
+.comment button {
+  background-color: #e74c3c;
+  color: #fff;
+  border: 2px solid #bf2718;
+  padding: 0.5rem 1rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
+
+.search-box {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.search-box input[type="text"] {
+  padding: 0.5rem;
+  border: 2px solid rgb(var(--foreground-border));
+  border-radius: 0.8rem;
+  background: transparent;
+  margin: 0 2rem;
+}
+
+.search-box button {
+  background-color: #00cc88;
+  color: #fff;
+  border: 2px solid #008055;
+  padding: 0.5rem 1rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
+
+.comment-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
