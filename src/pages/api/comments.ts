@@ -8,11 +8,11 @@ export default async function handler(
 ) {
   try {
     const commentsResponse: CommentsApiResponse = await axios.get(
-      "https://jsonplaceholder.typicode.com/comments"
+      `${process.env.NEXT_PUBLIC_COMMENTS_URI}/comments`
     );
 
     const usersResponse: UserApiResponse = await axios.get(
-      "https://randomuser.me/api/?results=50"
+      `${process.env.NEXT_PUBLIC_USERS_URI}/?results=50`
     );
 
     const comments = commentsResponse.data.slice(0, 50);
