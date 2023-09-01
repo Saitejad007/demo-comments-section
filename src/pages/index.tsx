@@ -1,9 +1,10 @@
 import CommentList from "@/components/commentList";
 import SearchBox from "@/components/searchBox";
 import { Comment, CommentWithUser, User } from "@/utils/types";
+import axios, { AxiosResponse } from "axios";
 import React, { useState } from "react";
 
-const getModifiedData = (comments: any, users: any) => {
+const getModifiedData = (comments: Comment[], users: User[]) => {
   const data = comments.map((comment: any, index: number) => {
     const { name, picture } = users[index];
     return { body: comment.body, name, picture, id: comment.id };
@@ -65,10 +66,10 @@ export default Home;
 
 export async function getServerSideProps() {
   try {
-    const commentsResponse = await fetch(
+    const commentsResponse: AxiosResponse = await axios(
       `${process.env.NEXT_PUBLIC_HOST}/api/comments`
     );
-    const { comments, users } = await commentsResponse.json();
+    const { comments, users } = commentsResponse.data;
 
     return {
       props: {
