@@ -66,7 +66,7 @@ export default Home;
 export async function getServerSideProps() {
   try {
     const commentsResponse = await fetch(
-      `${process.env.NEXT_PUBLIC_HOST_URI}/api/comments`
+      `${process.env.NEXT_PUBLIC_HOST}/api/comments`
     );
     const { comments, users } = await commentsResponse.json();
 
